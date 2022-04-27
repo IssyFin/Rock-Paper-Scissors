@@ -1,27 +1,62 @@
 //Play Game: A function that will play 5 rounds of a game and report the winner
+// window.addEventListener('click',console.log(this));
+
+// const scissorsButton = document.querySelector(".scissorsButton");
+// const rockButton = document.querySelector(".rockButton");
+// const paperButton = document.querySelector(".paperButton");
+
+
+// scissorsButton.addEventListener('click',(e)  =>  {
+//     console.log(e.target.classList[0])
+// })
+
+// rockButton.addEventListener('click', (e) => {
+//     console.log(e.target.classList[0])
+// })
+
+// paperButton.addEventListener('click', (e) =>{
+//     console.log(e.target.classList[0])
+// })
+
+const gameButton = document.querySelectorAll("button");
+
+gameButton.forEach(gameButton => gameButton.addEventListener('click', (e) => {
+    console.log(e.target.classList[0])
+    let computerChoice = computerPlay();
+    if(e.target.classList[0] == "paperButton"){
+        playARound("Paper",computerChoice);
+    }
+    else if(e.target.classList[0] == "rockButton"){
+        playARound("Rock",computerChoice);
+    }
+    else if(e.target.classList[0] == "scissorsButton"){
+        playARound("Scissors",computerChoice);
+    }
+}))
+
 function game(){
     let playerScore = 0;
     let computerScore = 0;
-    for(let i=0; i<5; i++){//loop once
-        let userChoice = prompt("Rock, Paper, or Scissors? Type your answer in the console!").toLowerCase();
-        while((userChoice != "paper")&&(userChoice!="rock")&&(userChoice!="scissors")){
-            console.log(`User choice is ${userChoice}`)
-            userChoice = prompt("Please add a valid input: Rock, Paper, or Scissors").toLowerCase();
-        }
-        let computerChoice = computerPlay();
-        let victor = playARound(userChoice,computerChoice);
-        if (victor=="Computer"){
-            console.log("The computer won this round!");
-            computerScore++;
-        }
-        else if(victor=="Player"){
-            console.log("You won this round!");
-            playerScore++;
-        }
-        else{
-            console.log("This round was a tie!");
-        }
-    }
+    // for(let i=0; i<5; i++){//loop once
+    //     let userChoice = prompt("Rock, Paper, or Scissors? Type your answer in the console!").toLowerCase();
+    //     while((userChoice != "paper")&&(userChoice!="rock")&&(userChoice!="scissors")){
+    //         console.log(`User choice is ${userChoice}`)
+    //         userChoice = prompt("Please add a valid input: Rock, Paper, or Scissors").toLowerCase();
+    //     }
+    //     let computerChoice = computerPlay();
+    //     let victor = playARound(userChoice,computerChoice);
+    //     if (victor=="Computer"){
+    //         console.log("The computer won this round!");
+    //         computerScore++;
+    //     }
+    //     else if(victor=="Player"){
+    //         console.log("You won this round!");
+    //         playerScore++;
+    //     }
+    //     else{
+    //         console.log("This round was a tie!");
+    //     }
+    // }
     console.log(`The final score was: \n Player: ${playerScore} \n Computer: ${computerScore}`);
     if(playerScore == computerScore){
         console.log('The game was a tie!');
