@@ -1,0 +1,28 @@
+body{
+    background-color:lavender;
+    text-align:center;
+    font-size:14px;
+}
+
+button{
+    background-color:pink;
+    border-color:aquamarine;
+    border-radius:20px;
+}
+
+button:hover{
+    background-color:aquamarine;
+}
+
+#playerScoreBlock{
+color:red;
+}
+
+#computerScoreBlock{
+    color:blue;
+}
+
+#introMessageBlock{
+    font-size: 16px;
+    font-weight:bold;
+}
